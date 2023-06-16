@@ -60,18 +60,24 @@ const InputFile = () => {
     <div className="container">
       <div className="section">
         <h2 className="section-heading">Enter File</h2>
+        <hr></hr>
         <form className="form" onSubmit={handleSubmit}>
           <input
             className="form-input"
             type="file"
             onChange={handleFileChange}
           />
+          <hr></hr>
           <button className="form-button" type="submit">
             Process File
           </button>
         </form>
         <p className="message">{message}</p>
       </div>
+      <hr></hr>
+      <button className="form-button2" type="submit">
+        Assign Teacher Duties
+      </button>
     </div>
   );
 };
