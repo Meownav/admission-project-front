@@ -4,8 +4,8 @@ import "./App.css";
 
 const App = () => {
   return (
-    // <InputFile />
-    <TeacherDuty />
+    <InputFile />
+    // <TeacherDuty />
   );
 };
 
