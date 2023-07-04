@@ -65,11 +65,21 @@ const InputFile = () => {
 					<input
 						className="form-input"
 						type="file"
+						accept=".xls,.xlsx"
 						onChange={handleFileChange}
 					/>
 					{/* <hr></hr> */}
 					<button className="form-button" type="submit">
 						Process File
+					</button>
+					<input
+						type="file"
+						className="form-input2"
+						id=""
+						accept="application/pdf"
+					/>
+					<button className="form-button3" type="submit">
+						Process Datesheet
 					</button>
 				</form>
 				<p className="message">{message}</p>

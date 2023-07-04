@@ -92,11 +92,18 @@ body {
 	/* margin-bottom: 25px; */
 	justify-content: center;
 	align-items: center;
+	box-sizing: border-box;
+	flex-wrap: wrap;
 }
 
 .form-input {
 	flex-grow: 1;
 	padding: 5px;
+	color: white;
+}
+.form-input2 {
+	flex-grow: 1;
+	/* padding-left: px; */
 	color: white;
 }
 
@@ -109,6 +116,19 @@ body {
 	color: #fff;
 	border: none;
 	cursor: pointer;
+}
+.form-button3 {
+	margin-top: 5%;
+	border-radius: 20px;
+	padding: 8px 10px;
+	font-size: large;
+	background-color: rgb(246, 30, 30);
+	color: #fff;
+	border: none;
+	cursor: pointer;
+}
+.form-button3:hover {
+	background-color: rgb(177, 24, 24);
 }
 .outer {
 	display: flex;
