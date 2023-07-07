@@ -11,27 +11,17 @@ const InputFile = () => {
     setFile(event.target.files[0]);
   };
 
-  const handleDatesheetChange = (event) => {
-    console.log(event.target.files);
-    for (let i = 0; i < event.target.files.length; i++) {
-      setDatesheet((prevDatesheet) => [
-        ...prevDatesheet,
-        event.target.files[i],
-      ]);
-    }
-  };
-
-  const handleSubmit = (event) => {
+  const handleStudentFileSubmit = (event) => {
     event.preventDefault();
-    if (!file && !datesheet) {
+    if (!file) {
       setMessage("Please select a file.");
       return;
     }
 
     const formData = new FormData();
-    // if students file is provided and datesheet is not provided
-    if (file && !datesheet) {
+    if (file) {
       formData.append("file", file);
+      console.log("Sending the students file.");
       axios
         .post("http://localhost:5000/process-file", formData)
         .then((response) => {
@@ -43,18 +33,6 @@ const InputFile = () => {
             "An error occurred during file processing. Check console."
           );
           console.log(error);
-        });
-    }
-    // if students file is not provided and datesheet is provided
-    if (datesheet && !file) {
-      formData.append("datesheet", datesheet);
-      axios
-        .post("http://localhost:5000/process-datesheet", formData)
-        .then((response) => {
-          console.log("Form data was : ", formData);
-        })
-        .catch((err) => {
-          setMessage(err.message);
         });
     }
   };
@@ -81,12 +59,66 @@ const InputFile = () => {
       });
   };
 
+  const downloadDatesheet = (resultPath) => {
+    axios
+      .get("http://localhost:5000/download-datesheet", {
+        params: {
+          resultPath: resultPath,
+        },
+        responseType: "blob", // Set the response type to 'blob'
+      })
+      .then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", resultPath.split("/").pop());
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleDatesheetChange = (event) => {
+    console.log(event.target.files);
+    const selectedFiles = Array.from(event.target.files);
+    setDatesheet(selectedFiles);
+  };
+
+  const handleDatesheetSubmit = (event) => {
+    event.preventDefault();
+    if (!datesheet || datesheet.length === 0) {
+      setMessage("Please select the datesheet.");
+      return;
+    }
+    const formData = new FormData();
+    datesheet.forEach((file) => {
+      formData.append("datesheet", file);
+    });
+    console.log("Sending the datesheet file.");
+    console.log(formData);
+
+    axios
+      .post("http://localhost:5000/process-datesheet", formData)
+      .then((response) => {
+        setMessage(response.data.message);
+        downloadDatesheet(response.data.result_path);
+      })
+      .catch((error) => {
+        setMessage(
+          "An error occurred during datesheet processing. Check console."
+        );
+        console.log(error);
+      });
+  };
   return (
     <div className="container">
       <div className="section">
         <h2 className="section-heading">Enter File</h2>
         <hr></hr>
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleStudentFileSubmit}>
           <input
             className="form-input"
             type="file"
@@ -96,6 +128,8 @@ const InputFile = () => {
           <button className="form-button" type="submit">
             Process File
           </button>
+        </form>
+        <form className="form" onSubmit={handleDatesheetSubmit}>
           <input
             type="file"
             className="form-input2"
