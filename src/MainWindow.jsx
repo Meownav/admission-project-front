@@ -26,14 +26,14 @@ const MainWindow = () => {
           <center>
             <h5>Warning ! Date master file must be created..</h5>
           </center>
+          <div className="manual">
+            <h2>Enter dates manually.</h2>
+            <button className="create">Click</button>
+          </div>
           <div className="againDate">
-          <h2>Submit Date Master file. </h2>
-          <button className="create">Submit</button>
-        </div>
-        <div className="manual">
-        <h2>Entger dates manually</h2>
-          <button className="create">Click</button>
-        </div>
+            <h2>Map dates. </h2>
+            <button className="create">Submit</button>
+          </div>
         </div>
       </div>
     </div>
