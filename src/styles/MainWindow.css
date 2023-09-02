@@ -20,26 +20,35 @@
     border-radius: 10px;
     padding: 5vw;
 }
+.dataFile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2vw;
+}
+h2{
+    font-size: 1.3vw;
+}
 .option1{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 4vw;
+    margin-bottom: 2vw;
 }
 .option2{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 4vw;
+    margin-bottom: 2vw;
 }
 .option3{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 4vw;
+    margin-bottom: 2vw;
 }
 .create{
-    padding: 2vw 5vw;
+    padding: 0.5vw 1.4vw;
     font-size: 1.3vw;
     border: none;
     border-radius: 30px;
@@ -49,4 +58,24 @@
 .create:hover{
     background-color: #4797b0;
     cursor: pointer;
+}
+h5{
+    margin-top: 0.3vw;
+    background-color: yellow;
+    border: none;
+    border-radius: 5px;
+    padding:0.2vw;
+    margin-bottom: 2vw;
+}
+.againDate{
+    /* margin-top: 0.8vw; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.4vw;
+}
+.manual{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
