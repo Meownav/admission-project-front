@@ -1,158 +1,111 @@
-/* .bg{
-    background-color: rgb(110, 118, 115);
-    height: 100vh;
-    width: 100vw;
-    background-image: url("https://e0.pxfuel.com/wallpapers/828/18/desktop-wallpaper-windows-10-blurry-blurred-gradient.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .backgroundArea{
-    display: flex;
-    border-radius: 10px;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(0, 0, 0);
-    opacity: 75%;
-    width: 700px;
-    height: 350px;
-  }
-  .headerr{
-    color: white;
-  }
-  .ImportExcel{
-    padding-left: 20px;
-    margin: 10px;
-    color: white;
-  }
-  .submit{
-    border-radius: 20px;
-    padding: 8px; 
-    background-color: rgb(201, 111, 55);
-    color: white;
-    border: 2px solid black;
-    width: 100px;
-  }
-  .submit:hover{
-    background-color: grey;
-  } */
-
-/* * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-} */
-
 body {
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-	margin: 0;
-	padding: 0;
-	background: url("https://wallpaperaccess.com/full/1385518.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url("https://wallpaperaccess.com/full/1385518.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .container {
-	/* max-width: 600px; */
-	height: 50vh;
+  /* max-width: 600px; */
+  height: 50vh;
 
-	padding: 20px;
-	display: flex;
-	justify-content: center;
-	/* border: 2px solid red; */
-	flex-direction: column;
-	background-color: #fff;
-	/* align-items: center; */
-	text-align: center;
-	border-radius: 10px;
-	background: linear-gradient(rgb(0, 0, 0), rgb(93, 91, 91));
-	opacity: 80%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  /* border: 2px solid red; */
+  flex-direction: column;
+  background-color: #fff;
+  /* align-items: center; */
+  text-align: center;
+  border-radius: 10px;
+  background: linear-gradient(rgb(0, 0, 0), rgb(93, 91, 91));
+  opacity: 80%;
 }
 
 .heading {
-	text-align: center;
+  text-align: center;
 }
 
 .section {
-	margin-bottom: 20px;
-	/* margin-top: 50%; */
+  margin-bottom: 20px;
+  /* margin-top: 50%; */
 }
 
 .section-heading {
-	text-align: center;
-	margin-bottom: 10px;
-	color: white;
+  text-align: center;
+  margin-bottom: 10px;
+  color: white;
 }
 
 .form {
-	display: flex;
-	/* margin-bottom: 25px; */
-	justify-content: center;
-	align-items: center;
-	box-sizing: border-box;
-	flex-wrap: wrap;
+  display: flex;
+  /* margin-bottom: 25px; */
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  flex-wrap: wrap;
 }
 
 .form-input {
-	flex-grow: 1;
-	padding: 5px;
-	color: white;
+  flex-grow: 1;
+  padding: 5px;
+  color: white;
 }
 .form-input2 {
-	flex-grow: 1;
-	/* padding-left: px; */
-	color: white;
+  flex-grow: 1;
+  /* padding-left: px; */
+  color: white;
 }
 
 .form-button {
-	margin-top: 5%;
-	border-radius: 20px;
-	padding: 5px 10px;
-	font-size: large;
-	background-color: rgb(210, 32, 32);
-	color: #fff;
-	border: none;
-	cursor: pointer;
+  margin-top: 5%;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: large;
+  background-color: rgb(210, 32, 32);
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 .form-button3 {
-	margin-top: 5%;
-	border-radius: 20px;
-	padding: 8px 10px;
-	font-size: large;
-	background-color: rgb(246, 30, 30);
-	color: #fff;
-	border: none;
-	cursor: pointer;
+  margin-top: 5%;
+  border-radius: 20px;
+  padding: 8px 10px;
+  font-size: large;
+  background-color: rgb(246, 30, 30);
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 .form-button3:hover {
-	background-color: rgb(177, 24, 24);
+  background-color: rgb(177, 24, 24);
 }
 .outer {
-	display: flex;
-	text-align: center;
-	justify-content: center;
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }
 
 .form-button2 {
-	margin-top: 20px;
-	font-size: large;
-	border-radius: 20px;
-	width: 40%;
-	padding: 10px;
-	background-color: rgb(24, 98, 237);
-	color: white;
-	border: none;
-	cursor: pointer;
+  margin-top: 20px;
+  font-size: large;
+  border-radius: 20px;
+  width: 40%;
+  padding: 10px;
+  background-color: rgb(24, 98, 237);
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 .form-button2:hover {
-	background-color: rgb(16, 5, 171);
+  background-color: rgb(16, 5, 171);
 }
 
 .message {
-	font-weight: bold;
-	text-align: center;
+  font-weight: bold;
+  text-align: center;
 }
