@@ -1,5 +1,5 @@
-import InputFile from "./components/InputFile";
-import TeacherDuty from "./components/teacherDuty";
+// import InputFile from "./components/InputFile";
+// import TeacherDuty from "./components/teacherDuty";
 import MainWindow from "./MainWindow.jsx"
 import "./App.css";
 
