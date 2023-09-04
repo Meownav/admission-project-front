@@ -18,7 +18,7 @@
     background-color: white;
     border: none;
     border-radius: 10px;
-    padding: 5vw;
+    padding: 4vw;
 }
 .dataFile{
     display: flex;
@@ -52,14 +52,17 @@ h2{
     font-size: 1.3vw;
     border: none;
     border-radius: 30px;
-    background-color: #5BC0DE;
+    /* background-color: #5BC0DE; */
+    background-color: #5882FA;
     color: white
 }
 .create:hover{
-    background-color: #4797b0;
+    /* background-color: #4797b0; */
+    background-color: #3958ad;
     cursor: pointer;
 }
 h5{
+    font-size: 0.9vw;
     margin-top: 0.3vw;
     background-color: yellow;
     border: none;
@@ -78,4 +81,20 @@ h5{
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.4vw;
+}
+.submitFile{
+    font-size: 1vw;
+    width: 15vw;
+    background-color: #ecebeb;
+    padding: 0.5vw;
+    border-radius: 6px;
+}
+input::file-selector-button{
+    border: groove;
+    border-radius: 10px;
+    background-color: #d9d4d4;
+    padding: 0.5vw;
+}
+input::file-selector-button:hover{
+    color: blue;
 }

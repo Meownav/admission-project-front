@@ -11,12 +11,14 @@ const MainWindow = () => {
   const handle_db_change = (e) => {
     e.preventDefault();
     setDbFile(e.target.files[0]);
+    alert("File has been selected.Please submit the file.")
   };
 
   // Handles when the db_file is submitted.
   const handle_db_submit = (e) => {
     e.preventDefault();
     console.log(dbFile);
+    alert("Uploading file.Please wait...");
     const formData = new FormData();
     if (dbFile) {
       formData.append("dbFile", dbFile);
@@ -25,6 +27,7 @@ const MainWindow = () => {
         .post("http://localhost:5000/submit_file", formData)
         .then((response) => {
           console.log(response.data);
+          alert("Database file has been uploaded.");
         })
         .catch((err) => console.error(err));
     }
@@ -33,10 +36,13 @@ const MainWindow = () => {
   // Request to create the course master.
   const handle_course_master = (e) => {
     e.preventDefault();
+    alert("Creating Course Master file...");
     axios
       .get("http://localhost:5000/course_master")
       .then((response) => {
+        console.log("course master");
         console.log(response.data);
+        alert("Course Master file has been created.");
       })
       .catch((err) => console.error(err));
   };
@@ -44,10 +50,12 @@ const MainWindow = () => {
   // Request to create the subject master.
   const handle_subject_master = (e) => {
     e.preventDefault();
+    alert("Creating Subject Master file...");
     axios
       .get("http://localhost:5000/subject_master")
       .then((response) => {
         console.log(response.data);
+        alert("Subject Master file has been created.");
       })
       .catch((err) => console.error(err));
   };
@@ -55,6 +63,7 @@ const MainWindow = () => {
   // Request to create the date master.
   const handle_date_master = (e) => {
     e.preventDefault();
+    alert("Creating Date Master file...");
     axios
       .get("http://localhost:5000/date_master", { responseType: "blob" })
       .then((response) => {
@@ -65,6 +74,7 @@ const MainWindow = () => {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+        alert("Date Master file downloaded.");
       })
       .catch((err) => console.error(err));
   };
@@ -79,6 +89,7 @@ const MainWindow = () => {
   const handle_datefile_submit = (e) => {
     e.preventDefault();
     console.log(dateFile);
+    alert("Uploading file.Please wait...")
     const formData = new FormData();
     if (dbFile) {
       formData.append("dateFile", dateFile);
@@ -87,6 +98,7 @@ const MainWindow = () => {
         .post("http://localhost:5000/submit_date_file", formData)
         .then((response) => {
           console.log(response.data);
+          alert("Date Master file has been submitted.");
         })
         .catch((err) => console.error(err));
     }
@@ -95,6 +107,7 @@ const MainWindow = () => {
   // Request to map the dates.
   const handle_dates_mapping = (e) => {
     e.preventDefault();
+    alert("Mapping dates.Please wait...")
     axios
       .get("http://localhost:5000/final_dates", { responseType: "blob" })
       .then((response) => {
@@ -105,6 +118,7 @@ const MainWindow = () => {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+        alert("Dates mapped.Your file has been downloaded.")
       })
       .catch((err) => console.error(err));
   };
@@ -119,7 +133,11 @@ const MainWindow = () => {
         <div className="card">
           <form className="dataFile" onSubmit={handle_db_submit}>
             <h2>Upload database file.</h2>
-            <input type="file" className="create" onChange={handle_db_change} />
+            <input
+              type="file"
+              className="submitFile"
+              onChange={handle_db_change}
+            />
             <button type="submit" className="create">
               Submit
             </button>
@@ -152,7 +170,7 @@ const MainWindow = () => {
                 <h2>Enter dates manually.</h2>
                 <input
                   type="file"
-                  className="create"
+                  className="submitFile"
                   onChange={handle_datefile_change}
                 />
                 <button className="create" type="submit">
