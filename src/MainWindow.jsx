@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-
 import "./styles/MainWindow.css";
 
-const MainWindow = () => {
+const MainWindow = ({nextPage}) => {
   const [dbFile, setDbFile] = useState(null);
   const [dateFile, setDateFile] = useState(null);
 
@@ -11,7 +10,7 @@ const MainWindow = () => {
   const handle_db_change = (e) => {
     e.preventDefault();
     setDbFile(e.target.files[0]);
-    alert("File has been selected.Please submit the file.")
+    alert("File has been selected.Please submit the file.");
   };
 
   // Handles when the db_file is submitted.
@@ -89,7 +88,7 @@ const MainWindow = () => {
   const handle_datefile_submit = (e) => {
     e.preventDefault();
     console.log(dateFile);
-    alert("Uploading file.Please wait...")
+    alert("Uploading file.Please wait...");
     const formData = new FormData();
     if (dbFile) {
       formData.append("dateFile", dateFile);
@@ -107,7 +106,7 @@ const MainWindow = () => {
   // Request to map the dates.
   const handle_dates_mapping = (e) => {
     e.preventDefault();
-    alert("Mapping dates.Please wait...")
+    alert("Mapping dates.Please wait...");
     axios
       .get("http://localhost:5000/final_dates", { responseType: "blob" })
       .then((response) => {
@@ -118,7 +117,7 @@ const MainWindow = () => {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        alert("Dates mapped.Your file has been downloaded.")
+        alert("Dates mapped.Your file has been downloaded.");
       })
       .catch((err) => console.error(err));
   };
@@ -126,7 +125,6 @@ const MainWindow = () => {
   // const handle_dates_mapping = (e) => {
   //   e.preventDefault();
   // };
-
   return (
     <div>
       <div className="main">
@@ -183,6 +181,11 @@ const MainWindow = () => {
               <button className="create" onClick={handle_dates_mapping}>
                 Submit
               </button>
+            </div>
+            <div className="nextPage">
+              <center>
+                <button onClick={nextPage}>Next page</button>
+              </center>
             </div>
           </div>
         </div>

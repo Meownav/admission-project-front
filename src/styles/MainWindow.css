@@ -13,7 +13,7 @@
 }
 .card{
     /* height: 70%; */
-    height: calc(100vh - 20%);
+    height: calc(110vh - 20%);
     width: 50%;
     background-color: white;
     border: none;
@@ -97,4 +97,47 @@ input::file-selector-button{
 }
 input::file-selector-button:hover{
     color: blue;
+}
+
+.nextPage{
+    margin-top: 2vh;
+}
+.nextPage button{
+    padding: 0.5vw 1.4vw;
+    font-size: 1.3vw;
+    border: none;
+    border-radius: 30px;
+    background-color: #5882FA;
+    color: white
+}
+.nextPage button:hover{
+    background-color: #3c58a5;
+    color: white;
+    cursor: pointer;
+}
+.button{
+    /* background-color: red; */
+    margin: 3vh;
+    height: 5vh;
+    width: 40vw;
+}
+.button button{
+    height: 5vh;
+    width: 40vw;
+    border-radius: 50px;
+    /* background-color: rgb(107, 255, 156);
+    bgc */
+    background-color: #5882FA;
+    color: white;
+    font-size: 3vh;
+}
+.button button:hover{
+    cursor: pointer;
+    background-color: #3c58a5;;
+}
+#heading{
+    text-align: center;
+    font-weight: 800;
+    font-size: 5vh;
+    margin-top: -2vh;
 }
