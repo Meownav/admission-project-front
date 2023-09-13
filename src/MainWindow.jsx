@@ -129,6 +129,7 @@ const MainWindow = ({nextPage}) => {
     <div>
       <div className="main">
         <div className="card">
+        <h2 id="headingMain">Exam Schedular - Dyal Singh College</h2>
           <form className="dataFile" onSubmit={handle_db_submit}>
             <h2>Upload database file.</h2>
             <input
