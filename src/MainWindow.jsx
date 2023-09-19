@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./styles/MainWindow.css";
 
-const MainWindow = ({nextPage}) => {
+const MainWindow = ({ nextPage }) => {
   const [dbFile, setDbFile] = useState(null);
   const [dateFile, setDateFile] = useState(null);
 
@@ -122,14 +122,11 @@ const MainWindow = ({nextPage}) => {
       .catch((err) => console.error(err));
   };
 
-  // const handle_dates_mapping = (e) => {
-  //   e.preventDefault();
-  // };
   return (
     <div>
       <div className="main">
         <div className="card">
-        <h2 id="headingMain">Exam Schedular - Dyal Singh College</h2>
+          <h2 id="headingMain">Exam Schedular - Dyal Singh College</h2>
           <form className="dataFile" onSubmit={handle_db_submit}>
             <h2>Upload database file.</h2>
             <input
