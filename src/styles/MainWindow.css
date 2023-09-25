@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 .main{
     height: 100vh;
@@ -148,3 +149,19 @@ input::file-selector-button:hover{
     font-size: 4.5vh;
     text-align: center;
 }
+#report-heading{
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+#tbl{
+    border: 2px solid black;
+    width: 70vw;
+    text-align: justify;
+    padding: 4vh;
+    margin: 5vh;
+    font-size: 3vh;
+    border-radius: 3vh;
+}
+/* #row{
+    border-bottom: 2px solid rgb(246, 255, 0);
+} */
