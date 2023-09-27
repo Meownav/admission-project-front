@@ -5,6 +5,7 @@ const ReportsPage = () => {
   const [data, setData] = useState([]);
   const fetchData = async () => {
     try {
+      alert("Creating report 1. Please wait...")
       const response = await axios.get("http://localhost:5000/get_report");
       if (response.data.message === "Success") {
         const jsonData = JSON.parse(response.data.data);
@@ -15,10 +16,24 @@ const ReportsPage = () => {
       console.error("Error:", error);
     }
   };
+  const [dataTwo, setDatatwo] = useState([]);
+  const fetchDataTwo = async () => {
+    try {
+      alert("Creating report 2. Please wait...")
+      const response = await axios.get("http://localhost:5000/get_reporttwo");
+      if (response.data.message === "Success") {
+        const jsonData = JSON.parse(response.data.data);
+        console.log(jsonData);
+        setDatatwo(jsonData);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   return (
     <div>
@@ -26,12 +41,12 @@ const ReportsPage = () => {
         <div className="card">
           <h2 id="heading">Generate reports</h2>
           <div className="button">
-            <button onClick={fetchData}>Create Report 1</button>
-          </div>
-          {/* <div className="button">
-            <button>button 2</button>
+            <button onClick={fetchData}>Student's Strength</button>
           </div>
           <div className="button">
+            <button onClick={fetchDataTwo}>Gender Count</button>
+          </div>
+          {/* <div className="button">
             <button>button 3</button>
           </div>
           <div className="button">
@@ -56,10 +71,10 @@ const ReportsPage = () => {
       </div>
 
       <center>
-        <h1 id="report-heading">Report</h1>
+        <h1 id="report-heading" className="report-heading">Report 1 (Student's Strength)</h1>
       </center>
       <center>
-        <table id="tbl">
+        <table id="tbl" className="table">
           <thead>
             <tr>
               <th>Programme Name</th>
@@ -73,7 +88,7 @@ const ReportsPage = () => {
           </thead>
           <tbody>
             {data.map((val, idx) => (
-              <tr key={idx} >
+              <tr key={idx}>
                 <td key={"index" + idx}>{val["index"]}</td>
                 <td key={"aec" + idx}>{val["AEC"]}</td>
                 <td key={"core" + idx}>{val["CORE"]}</td>
@@ -81,6 +96,38 @@ const ReportsPage = () => {
                 <td key={"ge" + idx}>{val["GE"]}</td>
                 <td key={"sec" + idx}>{val["SEC"]}</td>
                 <td key={"vac" + idx}>{val["VAC"]}</td>
+              </tr>
+            ))}
+
+            {/* {data.map((value, index) => (
+            <tr key={index}>
+              <td>{value["Programme Name"]}</td>
+              <td>{value["Paper Type"]}</td>
+              <td>{value["count"]}</td>
+            </tr>
+          ))} */}
+          </tbody>
+        </table>
+      </center>
+      {/*  */}
+      <center>
+        <h1 id="report-heading" className="report-heading">Report 2 (Gender Count)</h1>
+      </center>
+      <center>
+        <table id="tb2" className="table">
+          <thead>
+            <tr>
+              <th>Programme Name</th>
+              <th>Female</th>
+              <th>Male</th>
+            </tr>
+          </thead>
+          <tbody>
+            {dataTwo.map((val, idx) => (
+              <tr key={idx}>
+                <td key={"index" + idx}>{val["index"]}</td>
+                <td key={"female" + idx}>{val["Female"]}</td>
+                <td key={"male" + idx}>{val["Male"]}</td>
               </tr>
             ))}
 
