@@ -5,7 +5,7 @@ const ReportsPage = () => {
   const [data, setData] = useState([]);
   const fetchData = async () => {
     try {
-      alert("Creating report 1. Please wait...")
+      alert("Creating report 1. Please wait...");
       const response = await axios.get("http://localhost:5000/get_report");
       if (response.data.message === "Success") {
         const jsonData = JSON.parse(response.data.data);
@@ -19,7 +19,7 @@ const ReportsPage = () => {
   const [dataTwo, setDatatwo] = useState([]);
   const fetchDataTwo = async () => {
     try {
-      alert("Creating report 2. Please wait...")
+      alert("Creating report 2. Please wait...");
       const response = await axios.get("http://localhost:5000/get_reporttwo");
       if (response.data.message === "Success") {
         const jsonData = JSON.parse(response.data.data);
@@ -30,7 +30,6 @@ const ReportsPage = () => {
       console.error("Error:", error);
     }
   };
-
   // useEffect(() => {
   //   fetchData();
   // }, []);
@@ -46,10 +45,10 @@ const ReportsPage = () => {
           <div className="button">
             <button onClick={fetchDataTwo}>Gender Count</button>
           </div>
-          {/* <div className="button">
-            <button>button 3</button>
-          </div>
           <div className="button">
+            <button>Drop-dow Menu</button>
+          </div>
+          {/*<div className="button">
             <button>button 4</button>
           </div>
           <div className="button">
@@ -69,9 +68,11 @@ const ReportsPage = () => {
           </div> */}
         </div>
       </div>
-
+      <hr  id="line"/>
       <center>
-        <h1 id="report-heading" className="report-heading">Report 1 (Student's Strength)</h1>
+        <h1 id="report-heading" className="report-heading">
+          Report 1 (Student's Strength)
+        </h1>
       </center>
       <center>
         <table id="tbl" className="table">
@@ -84,6 +85,7 @@ const ReportsPage = () => {
               <th>GE</th>
               <th>SEC</th>
               <th>VAC</th>
+              <th>Total</th>
             </tr>
           </thead>
           <tbody>
@@ -96,6 +98,7 @@ const ReportsPage = () => {
                 <td key={"ge" + idx}>{val["GE"]}</td>
                 <td key={"sec" + idx}>{val["SEC"]}</td>
                 <td key={"vac" + idx}>{val["VAC"]}</td>
+                <td key={"total" + idx}>{val["Total"]}</td>
               </tr>
             ))}
 
@@ -111,7 +114,9 @@ const ReportsPage = () => {
       </center>
       {/*  */}
       <center>
-        <h1 id="report-heading" className="report-heading">Report 2 (Gender Count)</h1>
+        <h1 id="report-heading" className="report-heading">
+          Report 2 (Gender Count)
+        </h1>
       </center>
       <center>
         <table id="tb2" className="table">
@@ -120,6 +125,7 @@ const ReportsPage = () => {
               <th>Programme Name</th>
               <th>Female</th>
               <th>Male</th>
+              <th>Total</th>
             </tr>
           </thead>
           <tbody>
@@ -128,6 +134,7 @@ const ReportsPage = () => {
                 <td key={"index" + idx}>{val["index"]}</td>
                 <td key={"female" + idx}>{val["Female"]}</td>
                 <td key={"male" + idx}>{val["Male"]}</td>
+                <td key={"total" + idx}>{val["Total"]}</td>
               </tr>
             ))}
 
