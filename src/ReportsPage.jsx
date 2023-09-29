@@ -1,7 +1,24 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Select from "react-select";
 
 const ReportsPage = () => {
+    // React state to manage selected options
+    const [selectedOptions, setSelectedOptions] = useState();
+
+    // Array of all options
+    const optionList = [
+      { value: "red", label: "Red" },
+      { value: "green", label: "Green" },
+      { value: "yellow", label: "Yellow" },
+      { value: "blue", label: "Blue" },
+      { value: "white", label: "White" }
+    ];
+  
+    // Function triggered on selection
+    function handleSelect(data) {
+      setSelectedOptions(data);
+    }
   const [data, setData] = useState([]);
   const fetchData = async () => {
     try {
@@ -68,7 +85,7 @@ const ReportsPage = () => {
           </div> */}
         </div>
       </div>
-      <hr  id="line"/>
+      <hr id="line" />
       <center>
         <h1 id="report-heading" className="report-heading">
           Report 1 (Student's Strength)
@@ -148,6 +165,47 @@ const ReportsPage = () => {
           </tbody>
         </table>
       </center>
+      <div className="report3">
+        <div className="dropdown1">
+          <h2>Choose course</h2>
+          <div className="dropdown-container">
+            <Select
+              options={optionList}
+              placeholder="Select color"
+              value={selectedOptions}
+              onChange={handleSelect}
+              isSearchable={true}
+              isMulti
+            />
+          </div>
+          <div className="dropdown2">
+            <h2>Choose course</h2>
+            <div className="dropdown-container">
+              <Select
+                options={optionList}
+                placeholder="Select color"
+                value={selectedOptions}
+                onChange={handleSelect}
+                isSearchable={true}
+                isMulti
+              />
+            </div>
+          </div>
+          <div className="dropdown3">
+            <h2>Choose course</h2>
+            <div className="dropdown-container">
+              <Select
+                options={optionList}
+                placeholder="Select color"
+                value={selectedOptions}
+                onChange={handleSelect}
+                isSearchable={true}
+                isMulti
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

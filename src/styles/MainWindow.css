@@ -192,3 +192,33 @@ input::file-selector-button:hover {
 /* #row{
     border-bottom: 2px solid rgb(246, 255, 0);
 } */
+.report3 {
+  margin: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10vh;
+  align-items: center;
+  /* background-color: red; */
+}
+.dropdown-container {
+  width: 20vh;
+}
+.css-b62m3t-container{
+  height: 20vh;
+}
+.dropdown1{
+  display: flex;
+  /* align-items: center; */
+  gap: 4vh;
+}
+.dropdown2{
+  display: flex;
+  /* align-items: center; */
+  gap: 4vh;
+}
+.dropdown3{
+  display: flex;
+  /* align-items: center; */
+  gap: 4vh;
+}
