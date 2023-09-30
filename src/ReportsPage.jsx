@@ -5,16 +5,7 @@ import Select from "react-select";
 const ReportsPage = () => {
   // React state to manage selected options
   const [selectedOptions, setSelectedOptions] = useState();
-
-  // Array of all options
-  const optionList = [
-    { value: "red", label: "Red" },
-    { value: "green", label: "Green" },
-    { value: "yellow", label: "Yellow" },
-    { value: "blue", label: "Blue" },
-    { value: "white", label: "White" },
-  ];
-
+  const [optionList,setoptionList]=useState([]);
   // Function triggered on selection
   function handleSelect(data) {
     setSelectedOptions(data);
@@ -47,6 +38,48 @@ const ReportsPage = () => {
       console.error("Error:", error);
     }
   };
+
+  //takes all courses from backend and display them as options of select tag
+  const [options,setOptions] = useState([])
+  const fetchOptions = async()=>{
+    try {
+      alert("Please wait...");
+      const response = await axios.get("http://localhost:5000/get_options");
+      if (response.data.message === "Success") {
+        const jsonData = JSON.parse(response.data.data);
+        setOptions(jsonData);
+        alert("Dropdown ready")
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+  //appending the courses into optionList 
+  useEffect(()=>{
+    Object.keys(options).map(function(key) {
+      optionList.push({value:options[key],label:options[key]})
+  });
+  },[options])
+
+
+  //sends the selected options to the backend to get the student data of selected courses
+  const sendtoBackend=async()=>{
+    try{
+      const formData=new FormData()
+      let val=[]
+      Object.keys(selectedOptions).map(function(key){
+        val.push(selectedOptions[key].value)
+      });
+      formData.append("array",val)
+      axios.post("http://localhost:5000/submit_selected_options", formData)
+      .then((response)=>{
+          const JsonData=JSON.parse(response.data.data)
+          console.log(JsonData)//data of selected course students
+      })
+    }catch (error) {
+      console.error("Error:", error);
+    }
+  }
   // useEffect(() => {
   //   fetchData();
   // }, []);
@@ -63,7 +96,7 @@ const ReportsPage = () => {
             <button onClick={fetchDataTwo}>Gender Count</button>
           </div>
           <div className="button">
-            <button>Drop-dow Menu</button>
+            <button onClick={fetchOptions}>Drop-dow Menu</button>
           </div>
           {/*<div className="button">
             <button>button 4</button>
@@ -175,6 +208,7 @@ const ReportsPage = () => {
           <h2>Choose course</h2>
           <div className="dropdown-container">
             <Select
+              id="dropdown"
               options={optionList}
               placeholder="Select color"
               value={selectedOptions}
@@ -182,7 +216,7 @@ const ReportsPage = () => {
               isSearchable={true}
               isMulti
             />
-          <input type="submit" value="Submit" className="dropdown-submit"/>
+          <input type="submit" value="Submit" className="dropdown-submit" onClick={sendtoBackend}/>
           </div>
         </div>
         {/*  */}
