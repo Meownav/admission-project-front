@@ -195,30 +195,44 @@ input::file-selector-button:hover {
 .report3 {
   margin: 10vh;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   gap: 10vh;
   align-items: center;
-  /* background-color: red; */
+  border: 2px solid black;
+  padding: 5vh;
+  background-color: rgb(241, 241, 241);
+  border-radius: 3vh;
 }
 .dropdown-container {
-  width: 20vh;
+  width: 50vh;
 }
 .css-b62m3t-container{
-  height: 20vh;
+  height: 30vh;
 }
 .dropdown1{
   display: flex;
   /* align-items: center; */
-  gap: 4vh;
+  /* gap: 4vh;x */
 }
 .dropdown2{
   display: flex;
   /* align-items: center; */
-  gap: 4vh;
+  /* gap: 4vh; */
 }
 .dropdown3{
   display: flex;
   /* align-items: center; */
-  gap: 4vh;
+  /* gap: 4vh; */
+}
+.dropdown-submit{
+  margin-left: 10vh;
+  padding: 2vh 6vh;
+  background-color: rgb(132, 188, 226);
+  font-size: 2.5vh;
+  border-radius: 4vh;
+  color: rgb(0, 0, 0);
+}
+.dropdown-submit:hover{
+  cursor: pointer;
+  background-color: rgb(103, 145, 173);
 }

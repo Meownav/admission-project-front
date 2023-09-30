@@ -3,22 +3,22 @@ import axios from "axios";
 import Select from "react-select";
 
 const ReportsPage = () => {
-    // React state to manage selected options
-    const [selectedOptions, setSelectedOptions] = useState();
+  // React state to manage selected options
+  const [selectedOptions, setSelectedOptions] = useState();
 
-    // Array of all options
-    const optionList = [
-      { value: "red", label: "Red" },
-      { value: "green", label: "Green" },
-      { value: "yellow", label: "Yellow" },
-      { value: "blue", label: "Blue" },
-      { value: "white", label: "White" }
-    ];
-  
-    // Function triggered on selection
-    function handleSelect(data) {
-      setSelectedOptions(data);
-    }
+  // Array of all options
+  const optionList = [
+    { value: "red", label: "Red" },
+    { value: "green", label: "Green" },
+    { value: "yellow", label: "Yellow" },
+    { value: "blue", label: "Blue" },
+    { value: "white", label: "White" },
+  ];
+
+  // Function triggered on selection
+  function handleSelect(data) {
+    setSelectedOptions(data);
+  }
   const [data, setData] = useState([]);
   const fetchData = async () => {
     try {
@@ -165,6 +165,11 @@ const ReportsPage = () => {
           </tbody>
         </table>
       </center>
+      <center>
+        <h1 id="report-heading" className="report-heading">
+          Report 3 (Student's Info)
+        </h1>
+      </center>
       <div className="report3">
         <div className="dropdown1">
           <h2>Choose course</h2>
@@ -177,32 +182,37 @@ const ReportsPage = () => {
               isSearchable={true}
               isMulti
             />
+          <input type="submit" value="Submit" className="dropdown-submit"/>
           </div>
-          <div className="dropdown2">
-            <h2>Choose course</h2>
-            <div className="dropdown-container">
-              <Select
-                options={optionList}
-                placeholder="Select color"
-                value={selectedOptions}
-                onChange={handleSelect}
-                isSearchable={true}
-                isMulti
-              />
-            </div>
+        </div>
+        {/*  */}
+        <div className="dropdown2">
+          <h2>Choose course</h2>
+          <div className="dropdown-container">
+            <Select
+              options={optionList}
+              placeholder="Select color"
+              value={selectedOptions}
+              onChange={handleSelect}
+              isSearchable={true}
+              isMulti
+            />
+            <input type="submit" value="Submit" className="dropdown-submit"/>
           </div>
-          <div className="dropdown3">
-            <h2>Choose course</h2>
-            <div className="dropdown-container">
-              <Select
-                options={optionList}
-                placeholder="Select color"
-                value={selectedOptions}
-                onChange={handleSelect}
-                isSearchable={true}
-                isMulti
-              />
-            </div>
+        </div>
+        {/*  */}
+        <div className="dropdown3">
+          <h2>Choose course</h2>
+          <div className="dropdown-container">
+            <Select
+              options={optionList}
+              placeholder="Select color"
+              value={selectedOptions}
+              onChange={handleSelect}
+              isSearchable={true}
+              isMulti
+            />
+            <input type="submit" value="Submit" className="dropdown-submit"/>
           </div>
         </div>
       </div>
