@@ -207,7 +207,7 @@ input::file-selector-button:hover {
   width: 50vh;
 }
 .css-b62m3t-container{
-  height: 30vh;
+  height: 36vh;
 }
 .dropdown1{
   display: flex;
@@ -227,12 +227,12 @@ input::file-selector-button:hover {
 .dropdown-submit{
   margin-left: 10vh;
   padding: 2vh 6vh;
-  background-color: rgb(132, 188, 226);
+  background-color: #5882fa;
+  color: white;
   font-size: 2.5vh;
   border-radius: 4vh;
-  color: rgb(0, 0, 0);
 }
 .dropdown-submit:hover{
   cursor: pointer;
-  background-color: rgb(103, 145, 173);
+  background-color: #3958ad;
 }

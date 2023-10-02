@@ -63,8 +63,10 @@ const ReportsPage = () => {
 
 
   //sends the selected options to the backend to get the student data of selected courses
+  const [studentData,setStudentData] = useState([]);
   const sendtoBackend=async()=>{
     try{
+      alert("Loading Student's data . Please Wait...")
       const formData=new FormData()
       let val=[]
       Object.keys(selectedOptions).map(function(key){
@@ -75,6 +77,8 @@ const ReportsPage = () => {
       .then((response)=>{
           const JsonData=JSON.parse(response.data.data)
           console.log(JsonData)//data of selected course students
+          setStudentData(JsonData)
+          alert("Data Loaded.")
       })
     }catch (error) {
       console.error("Error:", error);
@@ -224,9 +228,9 @@ const ReportsPage = () => {
           <h2>Choose course</h2>
           <div className="dropdown-container">
             <Select
-              options={optionList}
+              // options={optionList}
               placeholder="Select color"
-              value={selectedOptions}
+              // value={selectedOptions}
               onChange={handleSelect}
               isSearchable={true}
               isMulti
@@ -239,9 +243,9 @@ const ReportsPage = () => {
           <h2>Choose course</h2>
           <div className="dropdown-container">
             <Select
-              options={optionList}
+              // options={optionList}
               placeholder="Select color"
-              value={selectedOptions}
+              // value={selectedOptions}
               onChange={handleSelect}
               isSearchable={true}
               isMulti
@@ -250,6 +254,38 @@ const ReportsPage = () => {
           </div>
         </div>
       </div>
+      {/* displaying student data */}
+      <center>
+        <table id="tb2" className="table">
+          <thead>
+            <tr>
+              <th>Student Name</th>
+              <th>Examination Roll Number</th>
+              <th>Programme Name</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {studentData.map((val, idx) => (
+              <tr key={idx}>
+                {/* <td key={"index" + idx}>{val["index"]}</td> */}
+                <td key={"Name" + idx}>{val["Name"]}</td>
+                <td key={"Exam Roll Number" + idx}>{val["Exam Roll Number"]}</td>
+                <td key={"Programme Name" + idx}>{val["Programme Name"]}</td>
+                <td key={"Email" + idx}>{val["Email"]}</td>
+              </tr>
+            ))}
+
+            {/* {data.map((value, index) => (
+            <tr key={index}>
+              <td>{value["Programme Name"]}</td>
+              <td>{value["Paper Type"]}</td>
+              <td>{value["count"]}</td>
+            </tr>
+          ))} */}
+          </tbody>
+        </table>
+      </center>
     </div>
   );
 };
