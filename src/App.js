@@ -1,22 +1,25 @@
-// import InputFile from "./components/InputFile";
-// import TeacherDuty from "./components/teacherDuty";
 import React, { useState } from "react";
 
-import MainWindow from "./MainWindow.jsx";
-import ReportsPage from "./ReportsPage.jsx";
+import UploadAndMap from "./components/UploadAndMap.jsx";
+import SeatingData from "./components/SeatingData.jsx";
+import ReporteS from "./ReportsPage.jsx";
 import "./App.css";
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [reportsVisible, setReportsVisible] = useState(false);
 
-  const nextPage = () => {
-    setCurrentPage(currentPage + 1);
-  };
-  // return <MainWindow />;
   return (
     <div>
-      {currentPage === 1 ? <MainWindow nextPage={nextPage} /> : null}
-      {currentPage === 2 ? <ReportsPage /> : null}
+      {/* {currentPage === "schedular" && <MainWindow />}
+      {currentPage === "reports" && <ReportsPage />} */}
+      <div>
+        <div className="main">
+          <UploadAndMap />
+        </div>
+        <div className="classroom-data-container">
+          <SeatingData /> 
+        </div>
+      </div>
     </div>
   );
 };

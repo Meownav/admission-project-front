@@ -1,17 +1,14 @@
-import React, { useState } from "react";
+/* This will handle the uploading of the data files, creation of course, subject and date master
+and mapping of dates. */
+import React from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import "./styles/MainWindow.css";
 
-const MainWindow = ({ nextPage }) => {
+import "./UploadAndMap.css";
+
+const UploadAndMap = () => {
   const [dbFile, setDbFile] = useState(null);
   const [dateFile, setDateFile] = useState(null);
-
-  // Handles when the db_file is selected from the local system.
-  const handle_db_change = (e) => {
-    e.preventDefault();
-    setDbFile(e.target.files[0]);
-    alert("File has been selected.Please submit the file.");
-  };
 
   // Handles when the db_file is submitted.
   const handle_db_submit = (e) => {
@@ -30,6 +27,13 @@ const MainWindow = ({ nextPage }) => {
         })
         .catch((err) => console.error(err));
     }
+  };
+
+  // Handles when the db_file is selected from the local system.
+  const handle_db_change = (e) => {
+    e.preventDefault();
+    setDbFile(e.target.files[0]);
+    alert("File has been selected.Please submit the file.");
   };
 
   // Request to create the course master.
@@ -123,73 +127,66 @@ const MainWindow = ({ nextPage }) => {
   };
 
   return (
-    <div>
-      <div className="main">
-        <div className="card">
-          <h2 id="headingMain">Exam Schedular - Dyal Singh College</h2>
-          <form className="dataFile" onSubmit={handle_db_submit}>
-            <h2>Upload database file.</h2>
-            <input
-              type="file"
-              className="submitFile"
-              onChange={handle_db_change}
-            />
-            <button type="submit" className="create">
-              Submit
-            </button>
-          </form>
-          <div className="option1">
-            <h2>Create Course Master file. </h2>
-            <button className="create" onClick={handle_course_master}>
-              Create
-            </button>
-          </div>
-          <div className="option2">
-            <h2>Create Subject Master file. </h2>
-            <button className="create" onClick={handle_subject_master}>
-              Create
-            </button>
-          </div>
-          <div className="option3">
-            <h2>Create Date Master file. </h2>
-            <button className="create" onClick={handle_date_master}>
-              Create
-            </button>
-          </div>
-          <hr />
-          <center>
-            <h5>Warning! Date master file must be created..</h5>
-          </center>
-          <div>
-            <form onSubmit={handle_datefile_submit}>
-              <div className="manual">
-                <h2>Enter dates manually.</h2>
-                <input
-                  type="file"
-                  className="submitFile"
-                  onChange={handle_datefile_change}
-                />
-                <button className="create" type="submit">
-                  Submit
-                </button>
-              </div>
-            </form>
-            <div className="againDate">
-              <h2>Map dates. </h2>
-              <button className="create" onClick={handle_dates_mapping}>
+    <>
+      <div className="card">
+        <h2 id="headingMain">Exam Schedular - Dyal Singh College</h2>
+        <form className="dataFile" onSubmit={handle_db_submit}>
+          <h2>Upload database file.</h2>
+          <input
+            type="file"
+            className="submitFile"
+            onChange={handle_db_change}
+          />
+          <button type="submit" className="create">
+            Submit
+          </button>
+        </form>
+        <div className="option1">
+          <h2>Create Course Master file. </h2>
+          <button className="create" onClick={handle_course_master}>
+            Create
+          </button>
+        </div>
+        <div className="option2">
+          <h2>Create Subject Master file. </h2>
+          <button className="create" onClick={handle_subject_master}>
+            Create
+          </button>
+        </div>
+        <div className="option3">
+          <h2>Create Date Master file. </h2>
+          <button className="create" onClick={handle_date_master}>
+            Create
+          </button>
+        </div>
+        <hr />
+        <center>
+          <h5>Warning! Date master file must be created..</h5>
+        </center>
+        <div>
+          <form onSubmit={handle_datefile_submit}>
+            <div className="manual">
+              <h2>Enter dates manually.</h2>
+              <input
+                type="file"
+                className="submitFile"
+                onChange={handle_datefile_change}
+              />
+              <button className="create" type="submit">
                 Submit
               </button>
             </div>
-            <div className="nextPage">
-              <center>
-                <button onClick={nextPage}>Next page</button>
-              </center>
-            </div>
+          </form>
+          <div className="againDate">
+            <h2>Map dates. </h2>
+            <button className="create" onClick={handle_dates_mapping}>
+              Submit
+            </button>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default MainWindow;
+export default UploadAndMap;
