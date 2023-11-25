@@ -1,42 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SeatingData.css";
 
-const SeatingData = ({
-  roomName,
-  totalSeats,
-  seatsInUse,
-  cumulativeSum,
-  onInputChange,
-}) => {
+const SeatingData = () => {
+  const roomData = [
+    { Room1: 100 },
+    { Room2: 200 },
+    { Room3: 200 },
+    { Room4: 200 },
+    { Room5: 200 },
+    { Room6: 200 },
+    { Room7: 100 },
+    { Room8: 200 },
+    { Room9: 200 },
+    { Room10: 200 },
+    { Room11: 200 },
+    { Room12: 200 },
+    { Room13: 100 },
+    { Room14: 200 },
+    { Room15: 200 },
+    { Room16: 200 },
+    { Room17: 200 },
+    { Room18: 200 },
+  ];
+  const [cumsum, setCumsum] = useState(0);
+
+  const handleInputChange = (e) => {
+    // Convert the input value to a number
+    const inputValue = parseInt(e.target.value, 10) || 0;
+
+    // Update the cumulative sum state
+    setCumsum((prevCumsum) => {
+      // Check if the input value is empty
+      if (e.target.value.trim() === "") {
+        // If empty, set cumulative sum to 0
+        return 0;
+      } else {
+        // Calculate the cumulative sum
+        return prevCumsum + inputValue;
+      }
+    });
+  };
+
   return (
-    <div className="seating-card">
-      <h2>{roomName}</h2>
-      <div className="seating-info">
-        <div className="seats-in-use">
-          <h3>Seats in Use</h3>
-          <input
-            type="number"
-            value={seatsInUse}
-            onChange={(e) =>
-              onInputChange(roomName, "seatsInUse", e.target.value)
-            }
-          />
-        </div>
-        <div className="total-seats">
-          <h3>Total Seats</h3>
-          <input
-            type="number"
-            value={totalSeats}
-            onChange={(e) =>
-              onInputChange(roomName, "totalSeats", e.target.value)
-            }
-          />
-        </div>
+    <div className="seating-container">
+      <div className="room-data">
+        {roomData.map((val, idx) => {
+          const roomName = Object.keys(val)[0];
+          const capacity = val[roomName];
+
+          return (
+            <div key={idx} className="rooms">
+              <h1>{roomName}</h1>
+              <p>
+                <input
+                  type="number"
+                  min={0}
+                  defaultValue={0}
+                  max={capacity}
+                  onChange={(e) => handleInputChange(e, capacity)}
+                />
+                / {capacity}
+              </p>
+            </div>
+          );
+        })}
       </div>
-      <div className="cumulative-sum">
-        <h3>Cumulative Sum</h3>
-        <p>{cumulativeSum}</p>
-      </div>
+      <div className="cumulative-count">Total Seats Filled: {cumsum}</div>
     </div>
   );
 };

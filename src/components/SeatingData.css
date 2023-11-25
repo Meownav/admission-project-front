@@ -1,0 +1,54 @@
+.seating-container {
+  display: flex;
+}
+
+.room-data {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  margin: 5vh;
+}
+
+.rooms {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.rooms h1 {
+  text-align: left;
+}
+
+.rooms p {
+  text-align: center;
+}
+
+.cumulative-count {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end; /* Adjusted to align to the right */
+  font-size: 6vh;
+  position: fixed;
+  top: 90vh;
+  background-color: white; /* Add a background color if needed */
+  right: 0; /* Added to position it to the right */
+  z-index: 1; /* Ensure it's on top of other elements */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input {
+  padding: 2vh;
+  width: 5vw;
+  margin: 1vh;
+  font-size: 3vh;
+}
