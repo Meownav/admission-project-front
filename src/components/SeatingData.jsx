@@ -22,23 +22,21 @@ const SeatingData = () => {
     { Room17: 200 },
     { Room18: 200 },
   ];
-  const [cumsum, setCumsum] = useState(0);
 
-  const handleInputChange = (e) => {
+  const [cumsum, setCumsum] = useState(0);
+  const [inputValues, setInputValues] = useState(new Array(roomData.length).fill(0));
+
+  const handleInputChange = (e, index, capacity) => {
     // Convert the input value to a number
     const inputValue = parseInt(e.target.value, 10) || 0;
 
+    // Update the input values array
+    const newInputValues = [...inputValues];
+    newInputValues[index] = inputValue;
+    setInputValues(newInputValues);
+
     // Update the cumulative sum state
-    setCumsum((prevCumsum) => {
-      // Check if the input value is empty
-      if (e.target.value.trim() === "") {
-        // If empty, set cumulative sum to 0
-        return 0;
-      } else {
-        // Calculate the cumulative sum
-        return prevCumsum + inputValue;
-      }
-    });
+    setCumsum(newInputValues.reduce((sum, value) => sum + value, 0));
   };
 
   return (
@@ -57,7 +55,7 @@ const SeatingData = () => {
                   min={0}
                   defaultValue={0}
                   max={capacity}
-                  onChange={(e) => handleInputChange(e, capacity)}
+                  onChange={(e) => handleInputChange(e, idx, capacity)}
                 />
                 / {capacity}
               </p>

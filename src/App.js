@@ -17,7 +17,7 @@ const App = () => {
       <div className="main">
         <UploadAndMap id="upload-map" />
       </div>
-      <button onClick={showReports}> Show Reports</button>
+      {/* <button onClick={showReports}> Show Reports</button> */}
       <div className="classroom-data-container">
         <SeatingData id="seating-data" />
       </div>
