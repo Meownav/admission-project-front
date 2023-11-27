@@ -1,7 +1,14 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom"; // Import useLocation
 import "./SeatingData.css";
 
-const SeatingData = () => {
+const SeatingData = ({ showCumulativeCount }) => {
+  
+  // const location = useLocation();
+  // console.log("Current Path:", location.pathname);
+  // const isOnCurrentComponent = location.pathname === "/seating";
+  // console.log(isOnCurrentComponent)
+
   const roomData = [
     { Room1: 100 },
     { Room2: 200 },
@@ -63,7 +70,11 @@ const SeatingData = () => {
           );
         })}
       </div>
-      <div className="cumulative-count">Total Seats Filled: {cumsum}</div>
+      {showCumulativeCount && (
+        <div className="cumulative-count">
+          Total Seats Filled: {cumsum}
+        </div>
+      )}
     </div>
   );
 };

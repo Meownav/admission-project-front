@@ -26,29 +26,39 @@
   display: flex;
   flex: 1;
   align-items: center;
-  justify-content: flex-end; /* Adjusted to align to the right */
+  justify-content: flex-end;
   font-size: 6vh;
   position: fixed;
   top: 90vh;
-  background-color: white; /* Add a background color if needed */
-  right: 0; /* Added to position it to the right */
-  z-index: 1; /* Ensure it's on top of other elements */
+  background-color: white;
+  right: 0;
+  z-index:-10;
+  border: 2px solid white;
+  padding: 2vh;
+  border-radius: 2vh;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
-}
 
 input {
   padding: 2vh;
   width: 5vw;
   margin: 1vh;
   font-size: 3vh;
+}
+.buttons{
+  display: flex;
+  justify-content: space-around;
+  padding: 10vh;
+}
+button{
+  padding: 2vh;
+  font-size: 3vh;
+  border-radius: 5vh;
+  background-color: #5882FA;
+  border: none;
+  color: white;
+}
+button:hover{
+  background-color: #3958AD;
+  cursor: pointer;
 }

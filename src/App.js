@@ -10,7 +10,15 @@ const App = () => {
   const [uploadVisible, setUploadVisible] = useState(true);
   const [seatsVisible, setSeatsVisible] = useState(false);
 
-  const showReports = () => {};
+  // Function to show reports and set seatsVisible to true
+  const showReports = () => {
+    setSeatsVisible(true);
+    // Other logic related to showing reports...
+  };
+  const hideReports = () => {
+    setSeatsVisible(false);
+    // Other logic related to showing reports...
+  };
 
   return (
     <div>
@@ -18,8 +26,13 @@ const App = () => {
         <UploadAndMap id="upload-map" />
       </div>
       {/* <button onClick={showReports}> Show Reports</button> */}
+      {/* Example button to trigger the showReports function */}
+      <div className="buttons">
+        <button onClick={showReports}>Show Cumilative Sum Counter</button>
+        {/* <button onClick={hideReports}>Hide Cumilative Sum Counter</button> */}
+      </div>
       <div className="classroom-data-container">
-        <SeatingData id="seating-data" />
+        <SeatingData id="seating-data" showCumulativeCount={seatsVisible} />
       </div>
     </div>
   );
